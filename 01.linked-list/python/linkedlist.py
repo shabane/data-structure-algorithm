@@ -18,6 +18,19 @@ class LinkedList:
 		else:
 			self.last.next = node
 			self.last = node
+	
+	def indexOf(self, value) -> int:
+		node = self.first
+		counter = -1
+		while node:
+			counter += 1
+			if node.value == value:
+				return counter
+			node = node.next
+		return -1
+
+
+
 
 
 if __name__ == '__main__':
@@ -25,4 +38,5 @@ if __name__ == '__main__':
 	linkedlist.append(13)
 	linkedlist.append(14)
 	linkedlist.append(15)
+	print(linkedlist.indexOf(14))
 
