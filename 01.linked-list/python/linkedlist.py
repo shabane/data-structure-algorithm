@@ -39,4 +39,5 @@ if __name__ == '__main__':
 	linkedlist.append(14)
 	linkedlist.append(15)
 	print(linkedlist.indexOf(14))
+	print(linkedlist.indexOf(16))
 
