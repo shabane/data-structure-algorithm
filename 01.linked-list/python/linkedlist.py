@@ -47,6 +47,17 @@ class LinkedList:
 			node = node.next
 		return counter
 
+	def removeLast(self):
+		node = self.first
+		for i in range(1, self.length()-1):
+			node = node.next
+		value = node.next.value
+		node.next = None
+		return value
+
+
+
+
 if __name__ == '__main__':
 	linkedlist = LinkedList(12)
 	linkedlist.append(13)
@@ -59,4 +70,6 @@ if __name__ == '__main__':
 	linkedlist.addFirst(10)
 	print(linkedlist.contains(10))
 	print(linkedlist.length())
-
+	linkedlist.append(99)
+	print(linkedlist.removeLast())
+	print(linkedlist.contains(99))
