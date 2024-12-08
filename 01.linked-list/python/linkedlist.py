@@ -34,8 +34,10 @@ class LinkedList:
 			return True
 		return False
 
-
-
+	def addFirst(self, value):
+		node = Node(value)
+		node.next = self.first
+		self.first = node
 
 if __name__ == '__main__':
 	linkedlist = LinkedList(12)
@@ -45,5 +47,7 @@ if __name__ == '__main__':
 	print(linkedlist.indexOf(14))
 	print(linkedlist.indexOf(16))
 	print(linkedlist.contains(12))
+	print(linkedlist.contains(10))
+	linkedlist.addFirst(10)
 	print(linkedlist.contains(10))
 
