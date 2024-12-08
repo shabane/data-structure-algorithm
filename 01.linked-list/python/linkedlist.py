@@ -29,6 +29,10 @@ class LinkedList:
 			node = node.next
 		return -1
 
+	def contains(self, value) -> bool:
+		if self.indexOf(value) >= 0:
+			return True
+		return False
 
 
 
@@ -40,4 +44,6 @@ if __name__ == '__main__':
 	linkedlist.append(15)
 	print(linkedlist.indexOf(14))
 	print(linkedlist.indexOf(16))
+	print(linkedlist.contains(12))
+	print(linkedlist.contains(10))
 
