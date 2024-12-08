@@ -39,6 +39,14 @@ class LinkedList:
 		node.next = self.first
 		self.first = node
 
+	def length(self) -> int:
+		node = self.first
+		counter = 0
+		while node:
+			counter += 1
+			node = node.next
+		return counter
+
 if __name__ == '__main__':
 	linkedlist = LinkedList(12)
 	linkedlist.append(13)
@@ -50,4 +58,5 @@ if __name__ == '__main__':
 	print(linkedlist.contains(10))
 	linkedlist.addFirst(10)
 	print(linkedlist.contains(10))
+	print(linkedlist.length())
 
