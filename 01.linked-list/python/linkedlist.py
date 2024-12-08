@@ -57,7 +57,9 @@ class LinkedList:
 		return value
 	
 	def deleteFirst(self):
-		self.first = self.first.next 
+		node2 = self.first.next
+		del(self.first)
+		self.first = node2
 
 
 
