@@ -30,9 +30,10 @@ class LinkedList:
 		return -1
 
 	def contains(self, value) -> bool:
-		if self.indexOf(value) >= 0:
-			return True
-		return False
+		#if self.indexOf(value) >= 0:
+		#	return True
+		#return False
+		return self.indexOf(value) != -1
 
 	def addFirst(self, value):
 		node = Node(value)
