@@ -54,7 +54,9 @@ class LinkedList:
 		value = node.next.value
 		node.next = None
 		return value
-
+	
+	def deleteFirst(self):
+		self.first = self.first.next 
 
 
 
@@ -73,3 +75,7 @@ if __name__ == '__main__':
 	linkedlist.append(99)
 	print(linkedlist.removeLast())
 	print(linkedlist.contains(99))
+	print(linkedlist.contains(10))
+	linkedlist.deleteFirst()
+	print(linkedlist.contains(10))
+
