@@ -5,8 +5,8 @@ class Node:
 	
 
 class LinkedList:
-	def __init__(self, value):
-		node = Node(value)
+	def __init__(self, value = None):
+		node = Node(value) if value else None
 		self.first = node
 		self.last = node
 	
@@ -50,18 +50,25 @@ class LinkedList:
 
 	def removeLast(self):
 		node = self.first
-		for i in range(1, self.length()-1):
+		while node:
+			if node.next == self.last:
+				node.next = None
+				self.last = node
+				break
 			node = node.next
-		value = node.next.value
-		node.next = None
-		return value
 	
 	def deleteFirst(self):
 		node2 = self.first.next
 		del(self.first)
 		self.first = node2
 
+	def print(self):
+		node = self.first
+		while node:
+			print(node.value)
+			node = node.next
 
+			
 
 if __name__ == '__main__':
 	linkedlist = LinkedList(12)
@@ -76,9 +83,13 @@ if __name__ == '__main__':
 	print(linkedlist.contains(10))
 	print(linkedlist.length())
 	linkedlist.append(99)
-	print(linkedlist.removeLast())
-	print(linkedlist.contains(99))
+	linkedlist.removeLast()
+	print("---", linkedlist.contains(99))
 	print(linkedlist.contains(10))
 	linkedlist.deleteFirst()
 	print(linkedlist.contains(10))
-
+	
+	linkedlist.print()
+	print("---")
+	linkedlist.removeLast()
+	linkedlist.print()
