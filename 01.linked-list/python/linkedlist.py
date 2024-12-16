@@ -86,6 +86,12 @@ class LinkedList:
 		self.last, self.first = self.first, self.last
 		self.last.next = None
 
+	def kThFromEnd(self, index):
+		node = self.first
+		index = self.length()-index
+		for i in range(index):
+			node = node.next
+		return node.value
 		
 if __name__ == '__main__':
 	linkedlist = LinkedList(12)
@@ -118,3 +124,4 @@ if __name__ == '__main__':
 	linkedlist.print()
 	print("---")
 
+	print(linkedlist.kThFromEnd(3))
