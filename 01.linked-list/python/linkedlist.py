@@ -49,15 +49,19 @@ class LinkedList:
 		return counter
 
 	def removeLast(self):
-		node = self.first
 		value = None
+		if self.first.next is None:
+			value = self.first.value
+			self.first.value = None
+		node = self.first
 		while node:
 			if node.next == self.last:
-				value = node.value
+				value = node.next.value
 				node.next = None
 				self.last = node
-				return value
+				break
 			node = node.next
+		return value
 	
 	def deleteFirst(self):
 		node2 = self.first.next
@@ -71,15 +75,18 @@ class LinkedList:
 			node = node.next
 	
 	def revrse(self):
-		first = self.first
-		second = first.next
-		next = second.next
-		for i in range(self.length()):
-			second.next = first
-			# dorost nist!
-			
+		perv = self.first
+		cur = perv.next
+		while cur:
+			next = cur.next
+			cur.next = perv
+			perv = cur
+			cur = next
 
+		self.last, self.first = self.first, self.last
+		self.last.next = None
 
+		
 if __name__ == '__main__':
 	linkedlist = LinkedList(12)
 	linkedlist.append(13)
@@ -103,3 +110,11 @@ if __name__ == '__main__':
 	print("---")
 	linkedlist.removeLast()
 	linkedlist.print()
+	print("---")
+	linkedlist.append(15)
+	linkedlist.print()
+	print("---")
+	linkedlist.revrse();
+	linkedlist.print()
+	print("---")
+
